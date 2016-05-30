@@ -29,7 +29,7 @@ docker-push:
         cmd: node app.js
 
 deploy-to-sloppyio:
-  steps:
+    steps:
     - script:
         name: deploy to sloppy using the API with curl
         code: |
