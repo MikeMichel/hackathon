@@ -34,4 +34,4 @@ deploy-to-sloppyio:
     - script:
         name: deploy to sloppy using the API with curl
         code: |
-          curl -H "Content-Type: application/json" -H "Authorization: Bearer $SLOPPYIO_TOKEN" -X PATCH -d '{"image": "'$REPOSITORY':'$WERCKER_GIT_COMMIT'"}'  https://api.sloppy.io/v1/apps/hackathon/services/web/apps/node
+          curl -vvv -H "Content-Type: application/json" -H "Authorization: Bearer $SLOPPYIO_TOKEN" -X PATCH -d '{"image": "'$REPOSITORY':'$WERCKER_GIT_COMMIT'"}'  https://api.sloppy.io/v1/apps/hackathon/services/web/apps/node
