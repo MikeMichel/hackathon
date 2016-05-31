@@ -1,4 +1,4 @@
 FROM node:onbuild
 
-ENV MONGODB_URI mongodb://mongodb/hack
+ENV MONGODB mongodb://mongodb/hackthon-starter
 EXPOSE 3000

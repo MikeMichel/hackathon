@@ -2,11 +2,11 @@ version: '2'
 services:
 
   node:
-    image: node:onbuild
+    image: node
     volumes:
-      - ./:/root/
-    working_dir: /root/
-    command: node app.js
+      - ./:/usr/src/app
+    working_dir: /usr/src/app
+    command: sh -c 'npm install; npm install -g nodemon ; nodemon -e js,jade app.js'
     ports:
       - "80:3000"
     links:
@@ -17,4 +17,3 @@ services:
   mongo:
     image: mongo:2.6.11
     command: mongod --smallfiles
-
