@@ -1,24 +1,17 @@
 version: '2'
 services:
 
-  web:
-    image: mikemichel/hackathon-starter:0.1
+  node:
+    build: .
+    image: "${HACK_IMAGE}"
+    links:
+      - mongo
     ports:
       - "80:3000"
-    depends_on:
-      - mongo
-    networks:
-      - all
     environment:
-      MONGODB_URI: "mongodb://mongo:27017/hackathon"
+      MONGODB: "mongodb://mongo:27017/hackathon"
 
   mongo:
-    image: mongo:3
+    image: mongo:2.6.11
     command: mongod --smallfiles
-    volumes:
-      - /mnt/mongodb:/data/db
-    networks:
-      - all
 
-networks:
-  all:
